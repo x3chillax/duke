@@ -29,7 +29,7 @@ public class Duke
                     System.out.print(line);
                     for (int j = 0; j < i; j += 1)
                     {
-                        System.out.println("      " + (j + 1) + ". " + "[" + arlist.get(j).getStatusIcon() + "]" + arlist.get(j).getDescription());
+                        System.out.println("      " + (j + 1) + "." + "[" + arlist.get(j).getStatusIcon() + "]" + arlist.get(j).getDescription());
                     }
                     System.out.println(line);
                     break;
