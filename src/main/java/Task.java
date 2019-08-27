@@ -9,7 +9,7 @@ public class Task
         this.isDone = false;
     }
 
-    public String getDescription()      //getDescription() is a function
+    public String getDescription()
     {
         return this.description;
     }

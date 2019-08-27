@@ -1,12 +1,12 @@
 public class Todo extends Task
 {
-
-    //protected String by;
-
-    public Todo(String description)//, String by)       //todo is only a string. no need date and time
+    public Todo(String description) throws DukeException       //todo is only a string. no need date and time
     {
         super(description);
-        //this.by = by;
+        if(description.trim().isEmpty())            //if description is juz white spaces.
+        {
+            throw new DukeException("☹ OOPS!!! The description of a todo cannot be empty.");
+        }
     }
 
     @Override
