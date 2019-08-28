@@ -1,13 +1,17 @@
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.io.*;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Duke
 {
     public static void main(String[] args)
     {
+        LocalDateTime.now();
         String line = "     ____________________________________________________________\n";
         System.out.println(line + "     Hello! I'm Duke\n" + "     What can I do for you?\n" + line);
         Scanner input = new Scanner(System.in);
@@ -124,12 +128,15 @@ public class Duke
                     }
                     case "deadline":
                     {
+                        //command = deadline return book /by Sunday
+                        //part[0] = deadline return book, part[1] = by Sunday
+                        //forcolon[1] = Sunday, removedeadline[1] = return book
                         String[] part = command.split("/", 2);
                         System.out.print(line);
-                        System.out.println("     Got it. I've added this task: ");
                         String[] forcolon = part[1].split(" ", 2);
                         String[] removedeadline = part[0].split(" ", 2);
                         arlist.add(new Deadline(removedeadline[1], forcolon[1]));
+                        System.out.println("     Got it. I've added this task: ");
                         System.out.println("\t   " + arlist.get(arlist.size() - 1).toString());
                         System.out.println("\t Now you have " + arlist.size() + " tasks in the list.");
                         System.out.println(line);
