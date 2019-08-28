@@ -1,5 +1,8 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import java.io.*;
+
 
 public class Duke
 {
@@ -10,7 +13,31 @@ public class Duke
         Scanner input = new Scanner(System.in);
         ArrayList<Task> arlist = new ArrayList<Task>();         //link ArrayList with Task
         String[] number;                                        //number is an array of string[x]
-        int count = 0;
+        //int count = 0;
+        try
+        {
+            //FileInputStream fis = new FileInputStream("src\\main\\java\\list.txt");
+            FileInputStream fis = new FileInputStream("list.txt");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            arlist = (ArrayList<Task>) ois.readObject();
+            ois.close();
+        }
+        catch(Exception e)
+        {
+            try
+            {
+                //FileOutputStream fos = new FileOutputStream("src\\main\\java\\list.txt");
+                FileOutputStream fos = new FileOutputStream("list.txt");
+                ObjectOutputStream oos = new ObjectOutputStream(fos);
+                oos.writeObject(arlist);
+                oos.close();
+            }
+            catch(Exception f)
+            {
+                System.out.println("Directory specified is not found!");
+            }
+            System.out.println("File not found in the directory! We have now created one for you");
+        }
 
         while(true)
         {
@@ -32,7 +59,7 @@ public class Duke
                         System.out.print(line);
                         System.out.println("\t Here are the tasks in your list:");
 
-                        for (int j = 0; j < count; j += 1)
+                        for (int j = 0; j < arlist.size(); j += 1)
                         {
                             System.out.println("\t " + (j + 1) + "." + arlist.get(j).toString());
                         }
@@ -92,7 +119,7 @@ public class Duke
                         System.out.println("\t   " + arlist.get(arlist.size() - 1).toString());
                         System.out.println("\t Now you have " + arlist.size() + " tasks in the list.");
                         System.out.println(line);
-                        count += 1;
+                        //count += 1;
                         break;
                     }
                     case "deadline":
@@ -106,7 +133,7 @@ public class Duke
                         System.out.println("\t   " + arlist.get(arlist.size() - 1).toString());
                         System.out.println("\t Now you have " + arlist.size() + " tasks in the list.");
                         System.out.println(line);
-                        count += 1;
+                        //count += 1;
                         break;
                     }
                     case "event":
@@ -138,7 +165,7 @@ public class Duke
                         System.out.println("\t   " + arlist.get(arlist.size() - 1).toString());
                         System.out.println("\t Now you have " + arlist.size() + " tasks in the list.");
                         System.out.println(line);
-                        count += 1;
+                        //count += 1;
                         break;
                     }
                     default:
@@ -163,5 +190,18 @@ public class Duke
                 System.out.println(e.getMessage());
             }
         }
+        try
+        {
+            //FileOutputStream fos = new FileOutputStream("src\\main\\java\\list.txt");
+            FileOutputStream fos = new FileOutputStream("list.txt");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(arlist);
+            oos.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println("Directory specified is not found!");
+        }
+        input.close();
     }
 }
