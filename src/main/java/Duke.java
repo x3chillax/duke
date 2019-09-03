@@ -160,7 +160,7 @@ public class Duke
                             catch (Exception e)
                             {
                                 System.out.println(line);
-                                System.out.println("Invalid syntax.\t Syntax = event (name of event) /at (Day) (Time)");
+                                System.out.println("Invalid syntax.\t Syntax = Please enter in the following syntax: event (EventName) /at YYYY-MM-DD HH:MM");
                                 break;
                             }
                         }
