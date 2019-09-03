@@ -13,7 +13,7 @@ public class Deadline extends Task
         super(description);     //return book
         this.by = by;           //Sunday
         //String str = "2007-32-32T70:70:30";
-        LocalDateTime dt = LocalDateTime.now();
+        //LocalDateTime dt = LocalDateTime.now();
         try
         {
             dt = LocalDateTime.parse(by, formatter);
@@ -21,7 +21,7 @@ public class Deadline extends Task
         catch(Exception E)
         {
             //System.out.println("die liao la");
-            throw new DukeException("Please enter in the following syntax: deadline (task) /at YYYY-MM-DD HH:MM");
+            throw new DukeException("Please enter in the following syntax: deadline (task) /by YYYY-MM-DD HH:MM");
         }
     }
 
