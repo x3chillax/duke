@@ -56,7 +56,6 @@ public class Duke
                     }
                     case "find":
                     {
-                        //ArrayList<Task> find = new ArrayList<Task>();
                         String output = "";
                         for (int j = 0; j < arlist.size(); j += 1)
                         {
