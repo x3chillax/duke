@@ -147,30 +147,6 @@ public class Duke
                         //count += 1;
                         break;
                     }
-                    case "delete":
-                    {
-                        if(number.length == 1)
-                        {
-                            try
-                            {
-                                int placeholder = (Integer.parseInt(number[1]) - 1);
-                            }
-                            catch (Exception e)
-                            {
-                                System.out.println(line);
-                                System.out.println("Invalid syntax.\t Syntax = delete (insert task number)");
-                                break;
-                            }
-                        }
-                        int placeholder = (Integer.parseInt(number[1]) - 1);            //done 1 means arlist[0] so remember to -1
-                        System.out.print(line);
-                        System.out.println("     Noted. I've removed this task: ");
-                        System.out.println("       " + arlist.get(placeholder).toString());
-                        System.out.println("\t Now you have " + (arlist.size() - 1) + " tasks in the list.");
-                        arlist.remove(placeholder);
-                        System.out.println(line);
-                        break;
-                    }
                     case "deadline":
                     {
                         //command = deadline return book /by Sunday
