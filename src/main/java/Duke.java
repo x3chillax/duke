@@ -1,11 +1,7 @@
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 import java.io.*;
-
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class Duke
 {
@@ -89,7 +85,7 @@ public class Duke
                             catch (Exception e)
                             {
                                 System.out.println(line);
-                                System.out.println("Invalid syntax.\t Syntax = todo (name of task)");
+                                System.out.println("Invalid syntax.\t Syntax = done (insert task number)");
                                 break;
                             }
                         }
@@ -132,6 +128,17 @@ public class Duke
                         //part[0] = deadline return book, part[1] = by Sunday
                         //forcolon[1] = Sunday, removedeadline[1] = return book
                         String[] part = command.split("/", 2);
+                        if(part.length == 1)
+                        try
+                        {
+                            String[] forcolon = part[1].split(" ", 2);
+                        }
+                        catch (Exception e)
+                        {
+                            System.out.print(line);
+                            System.out.println("Please enter in the following syntax: deadline (task) /by YYYY-MM-DD HH:MM");
+                            break;
+                        }
                         System.out.print(line);
                         String[] forcolon = part[1].split(" ", 2);
                         String[] removedeadline = part[0].split(" ", 2);
@@ -173,6 +180,30 @@ public class Duke
                         System.out.println("\t Now you have " + arlist.size() + " tasks in the list.");
                         System.out.println(line);
                         //count += 1;
+                        break;
+                    }
+                    case "delete":
+                    {
+                        if(number.length == 1)
+                        {
+                            try
+                            {
+                                int placeholder = (Integer.parseInt(number[1]) - 1);
+                            }
+                            catch (Exception e)
+                            {
+                                System.out.println(line);
+                                System.out.println("Invalid syntax.\t Syntax = delete (insert task number)");
+                                break;
+                            }
+                        }
+                        int placeholder = (Integer.parseInt(number[1]) - 1);            //done 1 means arlist[0] so remember to -1
+                        System.out.print(line);
+                        System.out.println("     Noted. I've removed this task: ");
+                        System.out.println("       " + arlist.get(placeholder).toString());
+                        System.out.println("\t Now you have " + (arlist.size() - 1) + " tasks in the list.");
+                        arlist.remove(placeholder);
+                        System.out.println(line);
                         break;
                     }
                     default:
