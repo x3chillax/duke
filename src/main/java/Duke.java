@@ -58,6 +58,31 @@ public class Duke
                         System.out.println(line);
                         break;
                     }
+                    case "find":
+                    {
+                        //ArrayList<Task> find = new ArrayList<Task>();
+                        String output = "";
+                        for (int j = 0; j < arlist.size(); j += 1)
+                        {
+                            if(arlist.get(j).toString().contains(number[1]))
+                            {
+                                output +=  "     " + (j+1) + arlist.get(j).toString() + "\n" ;
+                            }
+                        }
+                        if(!output.equals(""))
+                        {
+                            System.out.print(line);
+                            System.out.println("\t Here are the matching tasks in your list:");
+                            System.out.print(line);
+                            System.out.println(output);
+                        }
+                        else
+                        {
+                            System.out.print(line);
+                            System.out.println("\t Opps, no such word found!");
+                        }
+                        break;
+                    }
                     case "list":
                     {
                         System.out.print(line);
@@ -124,6 +149,30 @@ public class Duke
                         System.out.println("\t Now you have " + arlist.size() + " tasks in the list.");
                         System.out.println(line);
                         //count += 1;
+                        break;
+                    }
+                    case "delete":
+                    {
+                        if(number.length == 1)
+                        {
+                            try
+                            {
+                                int placeholder = (Integer.parseInt(number[1]) - 1);
+                            }
+                            catch (Exception e)
+                            {
+                                System.out.println(line);
+                                System.out.println("Invalid syntax.\t Syntax = delete (insert task number)");
+                                break;
+                            }
+                        }
+                        int placeholder = (Integer.parseInt(number[1]) - 1);            //done 1 means arlist[0] so remember to -1
+                        System.out.print(line);
+                        System.out.println("     Noted. I've removed this task: ");
+                        System.out.println("       " + arlist.get(placeholder).toString());
+                        System.out.println("\t Now you have " + (arlist.size() - 1) + " tasks in the list.");
+                        arlist.remove(placeholder);
+                        System.out.println(line);
                         break;
                     }
                     case "deadline":
