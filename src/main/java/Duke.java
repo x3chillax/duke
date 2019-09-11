@@ -5,7 +5,11 @@ import java.io.ObjectOutputStream;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
-
+/**
+ * The main class of Duke use to take in input and commands from the user and decide which class to use, depending on the user input
+ *
+ * @author Joey Goh
+ */
 public class Duke
 {
     public static void main(String[] args)

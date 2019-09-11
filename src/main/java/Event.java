@@ -1,6 +1,12 @@
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * This class defines the "Event" type Task
+ *
+ * @author Joey Goh
+ * @see Task
+ */
 public class Event extends Task
 {
 
@@ -8,6 +14,12 @@ public class Event extends Task
     LocalDateTime dt = LocalDateTime.now();
     static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
+    /**
+     * method to create a new Event object
+     *
+     * @param description the name of the Event
+     * @param time the time of the Event
+     */
     public Event(String description, String time) throws DukeException//project meeting /at Mon 2-4pm
     {
         super(description);     //Task's description

@@ -1,7 +1,15 @@
 import java.io.Serializable;
-
+/**
+ * This is an abstract class that stores the tasks
+ *
+ * @author Joey Goh
+ */
 public class Task implements Serializable
 {
+    /**
+     *  description - Description of given task
+     *  isDone - Status of given task
+     */
     protected String description;
     protected boolean isDone;
     protected String statusIcon = null;
@@ -11,6 +19,11 @@ public class Task implements Serializable
         this.description = description;
         this.isDone = false;
     }
+    /**
+     * method to create a new isDone object
+     *
+     * @param description the name of the task
+     */
     public boolean isDone()
     {
         return isDone;
