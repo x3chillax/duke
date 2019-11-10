@@ -13,4 +13,10 @@ src/main/resources/docs/
 *.iml
 bin/
 
+<<<<<<< HEAD
 *.txt
+=======
+# Less cluster please
+.vscode/
+*.class
+>>>>>>> c963b354b35edf15e6e6c48976bdbd47f6d3b213
